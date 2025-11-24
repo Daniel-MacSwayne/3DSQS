@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Title — Project Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Title -->
+        <h1>Paper Title Goes Here</h1>
+
+        <!-- Authors -->
+        <p class="authors">
+            <strong>Your Name</strong>, Coauthor A., Coauthor B.<br>
+            University of Somewhere
+        </p>
+
+        <!-- Links -->
+        <p class="links">
+            <a href="#">📄 Paper (arXiv)</a> |
+            <a href="#">💻 Code (GitHub)</a> |
+            <a href="#">📘 PDF</a> |
+            <a href="#">🎥 Video</a>
+        </p>
+
+        <!-- Teaser Image -->
+        <img src="images/teaser.png" class="teaser" alt="Teaser Image">
+
+        <!-- Abstract -->
+        <h2>Abstract</h2>
+        <p class="abstract">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Replace this text with your real abstract. This section should
+            summarise the key ideas of your paper in a few sentences.
+        </p>
+
+        <!-- Results Images -->
+        <h2>Results</h2>
+        <div class="image-grid">
+            <img src="images/result1.jpg" alt="Result 1">
+            <img src="images/result2.jpg" alt="Result 2">
+        </div>
+
+        <!-- Video Demo -->
+        <h2>Video Demo</h2>
+        <video controls width="700">
+            <source src="videos/demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+
+</body>
+</html>
