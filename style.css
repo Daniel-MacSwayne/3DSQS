@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fafafa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.authors, .links {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.links a {
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.teaser {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+.abstract {
+    text-align: justify;
+}
+
+.image-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.image-grid img {
+    max-width: 45%;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
