@@ -48,3 +48,66 @@ h1, h2 {
     border-radius: 6px;
     box-shadow: 0 0 6px rgba(0,0,0,0.1);
 }
+
+
+.comparison-container {
+    max-width: 100%;
+    margin: 30px auto;
+}
+
+/* Bottom video defines size */
+.video-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Both videos share same layout */
+.video-bottom,
+.video-top {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Top video overlays bottom */
+.video-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    clip-path: inset(0 50% 0 0);
+}
+
+/* Slider */
+.slider-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    z-index: 3;
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

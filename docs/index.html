@@ -45,6 +45,273 @@
             1dB in PSNR and prominent geometric improvement). 
         </p>
 
+
+
+
+        
+        
+        
+        
+        
+        <!-- Explanantion -->
+        <h2>What are Superquadrics?</h2>
+        <p class="paragraph">
+            Superquadrics are a family of 3D shapes that include cubes, spheres, cylinders etc. They are a superset of the ellipsoids used as
+            volumetric primitives in Gaussian Splatting. 
+            
+            
+            They are a superset generalisation of the 
+            
+            The eqiation below defines the distance field of a superquadric. You can recover a regular ellipsoid when $$\epsilon_1=\epsilon_2=1$$.
+            
+            The interactive diagram shows various superquadric examples.
+        </p>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+
+        <div>
+        $$
+        d_{3D}(x, y, z) 
+        =
+        \bigl(
+        \tfrac{x}{s_1}
+        \bigr)^{2}
+        + 
+        \bigl(
+        \tfrac{y}{s_2}
+        \bigr)^{2}
+        +
+        \bigl(
+        \tfrac{z}{s_3}
+        \bigr)^{2}
+        $$
+        </div>
+
+        <div>
+        $$
+        d_{3D}(x, y, z) 
+        =
+        
+        \Bigl(
+            \bigl(
+            \tfrac{x}{a}
+                \bigr)^{
+                    \tfrac{2}{
+                    \epsilon_2}} 
+            + 
+            \bigl(
+            \tfrac{y}{b}
+                \bigr)^{
+                    \tfrac{2}{
+                    \epsilon_2}}
+        \Bigr)^{
+            \tfrac{
+                \epsilon_2}{
+                \epsilon_1}} 
+        + 
+        \bigl(
+            \tfrac{z}{c}
+                \bigr)^{
+                    \tfrac{2}{
+                    \epsilon_1}} 
+        $$
+        </div>
+        
+        
+        <iframe src="assets/Superquadric Examples.html" width="100%" height="800" style="border:none;"></iframe>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <h2>What are they better?</h2>
+        <p class="abstract">
+            
+            By extending the modelling capacity of the splats, we can improve the visual and 
+            geometric reconstruction. 
+            
+            
+        </p>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                
+        
+        <h2>Video Comparison</h2>
+
+        <div class="video-row">
+            <div class="video-col">
+                <h3>SQS Reconstruction</h3>
+                <video autoplay loop muted playsinline>
+                    <source src="assets/SQS_Reconstruction_Separated.mp4" type="video/mp4">
+                </video>
+            </div>
+        
+            <div class="video-col">
+                <h3>GS Reconstruction</h3>
+                <video autoplay loop muted playsinline>
+                    <source src="assets/GS_Reconstruction_Separated.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        
+        <style>
+        .video-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap; /* allows stacking on small screens */
+        }
+        
+        .video-col {
+            text-align: center;
+            max-width: 350px; /* fits two in a 700px container */
+        }
+        
+        .video-col video {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.15);
+        }
+        </style>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="comparison-container">
+            <div class="video-wrapper video-compare">
+        
+                <video class="video-bottom" autoplay muted loop playsinline>
+                    <source src="assets/CreepyAttic_GS_Video.mp4" type="video/mp4">
+                </video>
+        
+                <video class="video-top" autoplay muted loop playsinline>
+                    <source src="assets/CreepyAttic_SQS_Video.mp4" type="video/mp4">
+                </video>
+        
+                <div class="slider-line"></div>
+            </div>
+        </div>
+        
+        <div class="comparison-container">
+            <div class="video-wrapper video-compare">
+        
+                <video class="video-bottom" autoplay muted loop playsinline>
+                    <source src="assets/Stump_GS_Video.mp4" type="video/mp4">
+                </video>
+        
+                <video class="video-top" autoplay muted loop playsinline>
+                    <source src="assets/Stump_SQS Video.mp4" type="video/mp4">
+                </video>
+        
+                <div class="slider-line"></div>
+            </div>
+        </div>
+
+        <div class="comparison-container">
+            <div class="video-wrapper video-compare">
+        
+                <video class="video-bottom" autoplay muted loop playsinline>
+                    <source src="assets/Room_GS_Video.mp4" type="video/mp4">
+                </video>
+        
+                <video class="video-top" autoplay muted loop playsinline>
+                    <source src="assets/Room_SQS_Video.mp4" type="video/mp4">
+                </video>
+        
+                <div class="slider-line"></div>
+            </div>
+        </div>
+
+
+
+        <script src="script.js"></script>
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <h2>How do we use them?</h2>
+        <p class="abstract">
+            
+            The superquadrics are to be used in place of the ellipsoids for 
+            
+            
+        </p>
+        
+
+        <h2>Superquadric Projection Diagram</h2>
+        <iframe src="assets/Projection Diagram.html" width="100%" height="800" style="border:none;"></iframe>
+
+
+
+
+
+
+
+
+
+
+
         <!-- Results Images -->
         <h2>Results</h2>
         <div class="image-grid">
@@ -59,23 +326,46 @@
             Your browser does not support the video tag.
         </video>
         
-        <!-- Video Demo -->
-        <h2>Video Demo</h2>
-        <video controls width="700">
-            <source src="assets/SQS_Reconstruction_Separated.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        
-        <!-- Video Demo -->
-        <h2>Video Demo</h2>
-        <video controls width="700">
-            <source src="assets/GS_Reconstruction_Separated.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
 
 
-        <h2>Interactive 3D Plot</h2>
-        <iframe src="assets/Projection Diagram.html" width="100%" height="600" style="border:none;"></iframe>
+
+
+
+
+
+
+
+
+
+
+        <!-- Related Links -->
+        <h2>Related Links</h2>
+        <ul>
+            <li><a href="https://github.com/graphdeco-inria/gaussian-splatting" target="_blank">3D Gaussian Splatting (Original Work)</a></li>
+            <li><a href="https://arxiv.org/abs/2402.10128" target="_blank">Generalised Exponential Splatting</a></li>
+        </ul>
+
+        <!-- Acknowledgements -->
+        <h2>Acknowledgements</h2>
+        <p>
+            This project is partially supported by the Royal Society grants (SIF\R1\231009, IES\R3\223050), and is supported by the 
+            Amazon Research Award “PCo3D: Physically Plausible Controllable 3D Generative Models”. The computations in this research 
+            were supported by the Baskerville Tier 2 HPC service. Baskerville was funded by the EPSRC and UKRI through the World Class 
+            Labs scheme (EP\T022221\1) and the Digital Research Infrastructure programme (EP\W032244\1) and is operated by Advanced 
+            Research Computing at the University of Birmingham.
+        </p>
+
+        <!-- BibTeX -->
+        <h2>BibTeX</h2>
+        <pre class="bibtex">
+        @article{macswayne2025_3dsqs,
+            title={3D Superquadric Splatting (3DSQS)},
+            author={MacSwayne, Daniel and Leonardis, Ales and Jiao, Jianbo},
+            journal={arXiv preprint arXiv:xxxx.xxxxx},
+            year={2025}
+        }
+        </pre>
+
 
 
     </div>
