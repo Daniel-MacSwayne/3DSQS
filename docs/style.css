@@ -1,3 +1,5 @@
+/* ---------- Page layout ---------- */
+
 body {
     font-family: Arial, sans-serif;
     background: #fafafa;
@@ -49,19 +51,27 @@ h1, h2 {
     box-shadow: 0 0 6px rgba(0,0,0,0.1);
 }
 
+.chapters button {
+    all: unset;                 /* remove browser defaults */
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+
+
+/* ---------- Video comparison ---------- */
 
 .comparison-container {
+    width: 700px;          /* unified visual size */
     max-width: 100%;
     margin: 30px auto;
 }
 
-/* Bottom video defines size */
 .video-wrapper {
     position: relative;
-    display: inline-block;
 }
 
-/* Both videos share same layout */
+/* Both videos */
 .video-bottom,
 .video-top {
     width: 100%;
@@ -69,7 +79,7 @@ h1, h2 {
     display: block;
 }
 
-/* Top video overlays bottom */
+/* Top video clipped horizontally */
 .video-top {
     position: absolute;
     top: 0;
@@ -91,23 +101,3 @@ h1, h2 {
     z-index: 3;
     pointer-events: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
