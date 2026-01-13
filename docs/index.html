@@ -54,7 +54,6 @@
         <h2>What are Superquadrics?</h2>
         <p class="paragraph">
             
-            The equation below defines the distance field of a superquadric. You can recover a regular ellipsoid when $$\epsilon_1=\epsilon_2=1$$.
             
             
             Superquadrics are a parametric family of three-dimensional shapes that generalize classical quadrics such as spheres, ellipsoids, cylinders, and cubes. 
@@ -64,7 +63,8 @@
             are set to specific values, the superquadric reduces exactly to a standard ellipsoid. In our formulation, we treat superquadrics as volumetric distance 
             functions rather than explicit surface level sets. By varying the shape parameters, a wide range of geometries can be represented while preserving 
             differentiability and compact parameterization. The interactive visualization illustrates several example superquadric shapes. The equation below 
-            defines the implicit distance field of a superquadric.
+            defines the distance field of a superquadric.
+            
         </p>
         
         
@@ -72,25 +72,7 @@
 
         <div>
         $$
-        d_{3D}(x, y, z) 
-        =
-        \bigl(
-        \tfrac{x}{s_1}
-        \bigr)^{2}
-        + 
-        \bigl(
-        \tfrac{y}{s_2}
-        \bigr)^{2}
-        +
-        \bigl(
-        \tfrac{z}{s_3}
-        \bigr)^{2}
-        $$
-        </div>
-
-        <div>
-        $$
-        d_{3D}(x, y, z) 
+        d(x, y, z) 
         =
         
         \Bigl(
@@ -117,6 +99,10 @@
                     \epsilon_1}} 
         $$
         </div>
+        
+        
+        Regular ellipsoids are recovered when $$\epsilon_1=\epsilon_2=1$$.
+
         
         
         <iframe src="assets/diagrams/Superquadric Examples.html" width="100%" height="800" style="border:none;"></iframe>

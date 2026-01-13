@@ -13,3 +13,12 @@ document.querySelectorAll('.video-compare').forEach(wrapper => {
         slider.style.left = pct + "%";
     });
 });
+
+
+
+
+
+
+
+
+
