@@ -18,19 +18,17 @@
             <a href="https://www.linkedin.com/in/daniel-macswayne-7916a5180/" target="_blank"><strong>Daniel MacSwayne</strong></a>,
             <a href="https://www.birmingham.ac.uk/staff/profiles/computer-science/academic-staff/leonardis-ales" target="_blank">Ales Leonardis</a>,
             <a href="https://jianbojiao.com/" target="_blank">Jianbo Jiao</a><br>
-            University of Birmingham, UK
+            MIX Group, University of Birmingham, UK
         </p>
 
         <!-- Links -->
         <p class="links">
             <a href="#">📄 Paper (arXiv)</a> |
             <a href="#">💻 Code (GitHub)</a> |
-            <a href="#">📘 PDF</a> |
-            <a href="#">🎥 Video</a>
         </p>
 
-        <!-- Teaser Image -->
-        <img src="images/teaser.png" class="teaser" alt="Teaser Image">
+
+
 
         <!-- Abstract -->
         <h2>Abstract</h2>
@@ -47,13 +45,7 @@
 
 
 
-        <!-- Video Demo -->
-        <h2>Video Demo</h2>
-        <video controls width="700">
-            <source src="assets/Presentation.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        
+
         
         
         
@@ -61,15 +53,18 @@
         <!-- Explanantion -->
         <h2>What are Superquadrics?</h2>
         <p class="paragraph">
-            Superquadrics are a family of 3D shapes that include cubes, spheres, cylinders etc. They are a superset of the ellipsoids used as
-            volumetric primitives in Gaussian Splatting. 
+            
+            The equation below defines the distance field of a superquadric. You can recover a regular ellipsoid when $$\epsilon_1=\epsilon_2=1$$.
             
             
-            They are a superset generalisation of the 
-            
-            The eqiation below defines the distance field of a superquadric. You can recover a regular ellipsoid when $$\epsilon_1=\epsilon_2=1$$.
-            
-            The interactive diagram shows various superquadric examples.
+            Superquadrics are a parametric family of three-dimensional shapes that generalize classical quadrics such as spheres, ellipsoids, cylinders, and cubes. 
+            By introducing shape exponents that control curvature and sharpness, superquadrics can smoothly interpolate between rounded and sharp geometries, 
+            enabling the representation of edges, corners, and flat faces within a single analytic formulation. In Gaussian Splatting, each primitive is modeled as 
+            an ellipsoidal Gaussian, which restricts the geometry to smooth, convex shapes. Superquadrics strictly generalize ellipsoids: when the shape exponents 
+            are set to specific values, the superquadric reduces exactly to a standard ellipsoid. In our formulation, we treat superquadrics as volumetric distance 
+            functions rather than explicit surface level sets. By varying the shape parameters, a wide range of geometries can be represented while preserving 
+            differentiability and compact parameterization. The interactive visualization illustrates several example superquadric shapes. The equation below 
+            defines the implicit distance field of a superquadric.
         </p>
         
         
@@ -138,11 +133,15 @@
         
         
         <h2>What are they better?</h2>
-        <p class="abstract">
+        <p class="paragraph">
             
-            By extending the modelling capacity of the splats, we can improve the visual and 
-            geometric reconstruction. 
-            
+            Ellipsoidal Gaussians have limited expressive power: they are inherently smooth and cannot accurately represent sharp features such as corners, thin
+            structures, edges, or high-curvature geometry. As a result, Gaussian splatting often struggles to faithfully reconstruct detailed surfaces, leading
+            to blurred geometry and loss of structural fidelity. Superquadrics significantly expand the modeling capacity of each primitive. Their shape 
+            parameters allow anisotropic deformation and controllable sharpness, enabling a single splat to better approximate complex local geometry. This 
+            reduces the number of primitives required to represent fine structures and improves both geometric accuracy and visual sharpness. By replacing 
+            Gaussian primitives with Superquadric Splats (SQS), the reconstruction gains improved alignment to real scene geometry, yielding higher PSNR 
+            and visibly sharper surfaces, especially in regions containing edges, corners, and object boundaries.
             
         </p>
         
@@ -152,55 +151,37 @@
         
         
         
-        
-        
-        
                 
+        
+
+        
+        
         
         <h2>Shape Fitting Comparison</h2>
 
-        <div class="video-row">
+        <div class="video-player">
         
-            <div class="video-col">
-                <h3>GS Reconstruction</h3>
-                <video autoplay loop muted playsinline>
-                    <source src="assets/videos/GS_Reconstruction_Separated.mp4" type="video/mp4">
-                </video>
+            <video id="jointVideo" autoplay muted loop playsinline>
+                <source src="assets/videos/Joint_Target_Reconstruction.mp4" type="video/mp4">
+            </video>
+        
+            <div class="controls">
+                <button id="playPause">⏸</button>
+                <input type="range" id="seekSlider" min="0" max="100" value="0">
             </div>
-            
-            <div class="video-col">
-                <h3>SQS Reconstruction</h3>
-                <video autoplay loop muted playsinline>
-                    <source src="assets/videos/SQS_Reconstruction_Separated.mp4" type="video/mp4">
-                </video>
-            </div>
-            
+        
         </div>
-        
-        <style>
-        .video-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-            flex-wrap: wrap; /* allows stacking on small screens */
-        }
-        
-        .video-col {
-            text-align: center;
-            max-width: 350px; /* fits two in a 700px container */
-        }
-        
-        .video-col video {
-            width: 100%;
-            border-radius: 6px;
-            box-shadow: 0 0 8px rgba(0,0,0,0.15);
-        }
-        </style>
+
+        <script src="script.js"></script>
 
         
-        <h2>Superquadric Projection Diagram</h2>
-        <iframe src="assets/diagrams/SQS Target Fitting.html" width="100%" height="800" style="border:none;"></iframe>
+        
+        
+        
+        
+        
+        
+        
 
 
 
@@ -214,11 +195,15 @@
         
         
         <h2>How do we use them?</h2>
-        <p class="abstract">
+        <p class="paragraph">
             
-            The superquadrics are to be used in place of the ellipsoids for 
-            
-            
+            We integrate superquadrics into the rendering pipeline by projecting their volumetric distance field onto the image plane, rather than rasterizing 
+            explicit surfaces. For each pixel, the projected distance is converted into intensity using an inverse exponential formulation, analogous to the 
+            opacity accumulation used in 3D Gaussian Splatting. This preserves the differentiable volumetric rendering framework while extending the primitive
+            representation beyond ellipsoids. The entire pipeline remains fully differentiable, enabling end-to-end optimization of superquadric parameters
+            directly from image supervision. Conceptually, the method follows the same rendering philosophy as 3DGS, but with a richer primitive model that 
+            allows more accurate spatial representation without sacrificing efficiency or optimization stability.            
+                        
         </p>
         
 
@@ -248,11 +233,19 @@
 
         <!-- Results Images -->
         <h2>Results</h2>
+        <p class="paragraph">
+
+        
+        Below we present qualitative comparisons between standard 3D Gaussian Splatting (GS) and the proposed Superquadric Splats (SQS). The interactive sliders 
+        allow direct visual comparison of reconstructions across multiple scenes.
         
         
         <!-- Video Demo -->
         <div class="comparison-container">
             <div class="video-wrapper video-compare">
+            
+                <div class="label label-left">GS</div>
+                <div class="label label-right">SQS</div>
         
                 <video class="video-bottom" autoplay muted loop playsinline>
                     <source src="assets/videos/CreepyAttic_SQS_Video.mp4" type="video/mp4">
@@ -268,6 +261,9 @@
         
         <div class="comparison-container">
             <div class="video-wrapper video-compare">
+            
+                <div class="label label-left">GS</div>
+                <div class="label label-right">SQS</div>
         
                 <video class="video-bottom" autoplay muted loop playsinline>
                     <source src="assets/videos/Stump_SQS_Video.mp4" type="video/mp4">
@@ -283,6 +279,9 @@
 
         <div class="comparison-container">
             <div class="video-wrapper video-compare">
+        
+                <div class="label label-left">GS</div>
+                <div class="label label-right">SQS</div>
         
                 <video class="video-bottom" autoplay muted loop playsinline>
                     <source src="assets/videos/Room_SQS_Video.mp4" type="video/mp4">
@@ -302,14 +301,10 @@
 
 
 
-        
-        <div class="image-grid">
-            <img src="images/result1.jpg" alt="Result 1">
-            <img src="images/result2.jpg" alt="Result 2">
-        </div>
 
 
-        
+
+
 
 
 
