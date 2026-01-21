@@ -62,26 +62,29 @@ h1, h2 {
 /* ---------- Video Player ---------- */
 
 
+
 .label {
     position: absolute;
-    top: 8px;
-    padding: 4px 10px;
-    font-size: 14px;
-    font-weight: bold;
+    bottom: 12px;                 /* move to bottom */
+    padding: 8px 16px;            /* bigger box */
+    background: rgba(0,0,0,0.65);
     color: white;
-    background: rgba(0,0,0,0.6);
-    border-radius: 4px;
+    font-weight: 700;
+    font-size: 18px;              /* bigger text */
+    border-radius: 6px;
     z-index: 5;
-    pointer-events: none;
+    pointer-events: none;         /* don't block slider */
+    letter-spacing: 0.5px;
 }
 
 .label-left {
-    left: 8px;
+    left: 12px;                   /* bottom-left corner */
 }
 
 .label-right {
-    right: 8px;
+    right: 12px;                  /* bottom-right corner */
 }
+
 
 
 
