@@ -34,7 +34,7 @@ document.querySelectorAll('[data-player]').forEach(player => {
 
     /* --- reset icon on loop --- */
     video.addEventListener('ended', () => {
-        playBtn.textContent = '▶︎';
+        playBtn.textContent = '❚❚';
     });
 
 });
