@@ -70,7 +70,7 @@ h1, h2 {
     background: rgba(0,0,0,0.65);
     color: white;
     font-weight: 700;
-    font-size: 18px;              /* bigger text */
+    font-size: 12px;              /* bigger text */
     border-radius: 6px;
     z-index: 5;
     pointer-events: none;         /* don't block slider */
