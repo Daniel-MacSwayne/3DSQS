@@ -65,7 +65,7 @@ h1, h2 {
 
 .label {
     position: absolute;
-    bottom: 50px;                 /* move to bottom */
+    top: 12px;                 /* move to top */
     padding: 8px 16px;            /* bigger box */
     background: rgba(0,0,0,0.65);
     color: white;
